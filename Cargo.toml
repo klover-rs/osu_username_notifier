@@ -1,0 +1,33 @@
+[package]
+name = "username_sniper"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+poise = { git = "https://github.com/serenity-rs/poise", branch = "serenity-next", features = ["cache", "collector"] }
+tokio = { version = "1.0", features = ["full"] }
+serenity = { git = "https://github.com/serenity-rs/serenity", branch = "next", features = [
+	"voice",
+	"dashmap",
+	"parking_lot",
+	"rustls_backend",
+	"model",
+	"gateway",
+	"client",
+	"cache",
+	"builder",
+	"collector",
+	"utils",
+] }
+dotenv = "0.15"
+reqwest = { version = "0.11.22", features = ["json"] }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+
+
+[features]
+default = ["serenity/rustls_backend", "cache", "chrono" ]
+chrono = ["serenity/chrono"]
+cache = ["serenity/cache"]
